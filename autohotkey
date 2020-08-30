@@ -25,22 +25,29 @@ winactivate, ahk_id %wowid4%
 Return
 
 ~F5::
-While GetKeyState("F5")
+winactivate, ahk_id %wowid5%
+Return
+
+~F9::
+While GetKeyState("F9")
 {
   ControlSend,, {space down}, ahk_id %wowid1%
   ControlSend,, {space down}, ahk_id %wowid2%
   ControlSend,, {space down}, ahk_id %wowid3%
   ControlSend,, {space down}, ahk_id %wowid4%
+  ControlSend,, {space down}, ahk_id %wowid5%
   Sleep, 100
   ControlSend,, {space up}, ahk_id %wowid1%
   ControlSend,, {space up}, ahk_id %wowid2%
   ControlSend,, {space up}, ahk_id %wowid3%
   ControlSend,, {space up}, ahk_id %wowid4%
+  ControlSend,, {space up}, ahk_id %wowid5%
 }
 ; Sleep, 100
 ; ControlSend,, -, ahk_id %wowid2%
 ; ControlSend,, -, ahk_id %wowid3%
 ; ControlSend,, -, ahk_id %wowid4%
+; ControlSend,, -, ahk_id %wowid5%
 Return
 
 ~1::
@@ -84,6 +91,8 @@ IfWinActive, ahk_id %wowid1%
   ControlSend,, %ThisKey%, ahk_id %wowid3%
   StringTrimLeft, ThisKey, A_ThisHotKey, 1
   ControlSend,, %ThisKey%, ahk_id %wowid4%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid5%
   Return
 }
 IfWinActive, ahk_id %wowid2%
@@ -94,6 +103,8 @@ IfWinActive, ahk_id %wowid2%
   ControlSend,, %ThisKey%, ahk_id %wowid3%
   StringTrimLeft, ThisKey, A_ThisHotKey, 1
   ControlSend,, %ThisKey%, ahk_id %wowid4%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid5%
   Return
 }
 IfWinActive, ahk_id %wowid3%
@@ -104,6 +115,8 @@ IfWinActive, ahk_id %wowid3%
   ControlSend,, %ThisKey%, ahk_id %wowid2%
   StringTrimLeft, ThisKey, A_ThisHotKey, 1
   ControlSend,, %ThisKey%, ahk_id %wowid4%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid5%
   Return
 }
 IfWinActive, ahk_id %wowid4%
@@ -114,5 +127,19 @@ IfWinActive, ahk_id %wowid4%
   ControlSend,, %ThisKey%, ahk_id %wowid2%
   StringTrimLeft, ThisKey, A_ThisHotKey, 1
   ControlSend,, %ThisKey%, ahk_id %wowid3%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid5%
+  Return
+}
+IfWinActive, ahk_id %wowid5%
+{
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid1%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid2%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid3%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid4%
   Return
 }
