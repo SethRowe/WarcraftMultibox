@@ -1,0 +1,118 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+
+; I found the basis of this script on a forum awhile ago. I can't find it again for proper creditation :(
+
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+WinGet, wowid, List, World of Warcraft
+
+~F1::
+winactivate, ahk_id %wowid1%
+Return
+
+~F2::
+winactivate, ahk_id %wowid2%
+Return
+
+~F3::
+winactivate, ahk_id %wowid3%
+Return
+
+~F4::
+winactivate, ahk_id %wowid4%
+Return
+
+~F5::
+While GetKeyState("F5")
+{
+  ControlSend,, {space down}, ahk_id %wowid1%
+  ControlSend,, {space down}, ahk_id %wowid2%
+  ControlSend,, {space down}, ahk_id %wowid3%
+  ControlSend,, {space down}, ahk_id %wowid4%
+  Sleep, 100
+  ControlSend,, {space up}, ahk_id %wowid1%
+  ControlSend,, {space up}, ahk_id %wowid2%
+  ControlSend,, {space up}, ahk_id %wowid3%
+  ControlSend,, {space up}, ahk_id %wowid4%
+}
+; Sleep, 100
+; ControlSend,, -, ahk_id %wowid2%
+; ControlSend,, -, ahk_id %wowid3%
+; ControlSend,, -, ahk_id %wowid4%
+Return
+
+~1::
+~2::
+~3::
+~4::
+~5::
+~6::
+~7::
+~8::
+~9::
+~0::
+~+1::
+~+2::
+~+3::
+~+4::
+~+5::
+~+6::
+~+7::
+~+8::
+~+9::
+~+0::
+~f::
+~g::
+~r::
+~t::
+;~+f::
+;~+g::
+;~+r::
+;~+t::
+~=::
+~-::
+~+=::
+~+-::
+;KeyWait 2
+IfWinActive, ahk_id %wowid1%
+{
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid2%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid3%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid4%
+  Return
+}
+IfWinActive, ahk_id %wowid2%
+{
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid1%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid3%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid4%
+  Return
+}
+IfWinActive, ahk_id %wowid3%
+{
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid1%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid2%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid4%
+  Return
+}
+IfWinActive, ahk_id %wowid4%
+{
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid1%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid2%
+  StringTrimLeft, ThisKey, A_ThisHotKey, 1
+  ControlSend,, %ThisKey%, ahk_id %wowid3%
+  Return
+}
