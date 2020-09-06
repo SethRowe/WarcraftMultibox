@@ -28,6 +28,37 @@ Return
 winactivate, ahk_id %wowid5%
 Return
 
+~F7::
+While GetKeyState("F7")
+{
+  ControlSend,, {s down}, ahk_id %wowid2%
+  ControlSend,, {s down}, ahk_id %wowid3%
+  ControlSend,, {s down}, ahk_id %wowid4%
+  ControlSend,, {s down}, ahk_id %wowid5%
+  ;Sleep, 100
+  ControlSend,, {s up}, ahk_id %wowid2%
+  ControlSend,, {s up}, ahk_id %wowid3%
+  ControlSend,, {s up}, ahk_id %wowid4%
+  ControlSend,, {s up}, ahk_id %wowid5%
+}
+Return
+
+~F8::
+{
+  ControlSend,, {x down}, ahk_id %wowid1%
+  ControlSend,, {x down}, ahk_id %wowid2%
+  ControlSend,, {x down}, ahk_id %wowid3%
+  ControlSend,, {x down}, ahk_id %wowid4%
+  ControlSend,, {x down}, ahk_id %wowid5%
+  Sleep, 100
+  ControlSend,, {x up}, ahk_id %wowid1%
+  ControlSend,, {x up}, ahk_id %wowid2%
+  ControlSend,, {x up}, ahk_id %wowid3%
+  ControlSend,, {x up}, ahk_id %wowid4%
+  ControlSend,, {x up}, ahk_id %wowid5%
+}
+Return
+
 ~F9::
 While GetKeyState("F9")
 {
@@ -43,11 +74,6 @@ While GetKeyState("F9")
   ControlSend,, {space up}, ahk_id %wowid4%
   ControlSend,, {space up}, ahk_id %wowid5%
 }
-; Sleep, 100
-; ControlSend,, -, ahk_id %wowid2%
-; ControlSend,, -, ahk_id %wowid3%
-; ControlSend,, -, ahk_id %wowid4%
-; ControlSend,, -, ahk_id %wowid5%
 Return
 
 ~1::
